@@ -2,10 +2,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 
 def cadastro(request):
-    nome = 'Guilherme Montenegro'
-    idade = '20'
-    profissao = 'Programador'
-    return render(request, 'cadastro/index.html', {'nome': nome, 'idade': idade, 'profissao': profissao})
+    pessoa = [{'nome': 'Guilherme Montenegro',
+              'idade': '20',
+              'profissao': 'Programador'},
+              
+              {'nome': 'Isaac Montenegro',
+              'idade': '1',
+              'profissao': 'Programador'}]
+    return render(request, 'cadastro/index.html', {'pessoa': pessoa})
 
 
 def login(request):
