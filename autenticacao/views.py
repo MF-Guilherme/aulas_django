@@ -3,3 +3,7 @@ from django.http import HttpResponse
 
 def cadastro(requests):
     return HttpResponse('Faça seu cadastro')
+
+
+def auth(request):
+    return HttpResponse('Url vazia')
