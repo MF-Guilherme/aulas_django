@@ -9,7 +9,7 @@ def cadastro(request):
               {'nome': 'Isaac Montenegro',
               'idade': '1',
               'profissao': 'Programador'}]
-    return render(request, 'cadastro/index.html', {'pessoa': pessoa})
+    return render(request, 'cadastro/index.html', {'pessoas': pessoa, 'x': 0})
 
 
 def login(request):
