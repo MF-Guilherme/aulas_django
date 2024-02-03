@@ -21,11 +21,5 @@ def cadastro(request):
     
 
 def listar(request):
-    
-    pessoa = Pessoa.objects.filter(nome='Guilherme').filter(senha=123456)[0]
-    pessoa.delete() #deleta do banco automaticamente.. não precisa do save() ?
-    
     pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
-    
- 
