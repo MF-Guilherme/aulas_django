@@ -7,7 +7,7 @@
 
 {%block body%}
 
-<form method="get" action="{% url 'valida_formulario' %}"> {% csrf_token %}
+<form method="post" action="{% url 'valida_formulario' %}"> {% csrf_token %}
     <input type="text" placeholder="Nome..." name="nome">
     <input type="text" placeholder="Email..." name="email">
     <input type="submit">
