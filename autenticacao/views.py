@@ -21,7 +21,12 @@ def cadastro(request):
     
 
 def listar(request):
-    pessoas = Pessoa.objects.filter(nome='Guilherme') | Pessoa.objects.filter(senha=123431).exclude(senha=123431) #excluindo baseado em condições
+    
+    dados = Pessoa.objects.filter(nome='Guilherme').filter(senha=123456)[0] # primeiro filtrar para depois atualizar. Utilizar [0] porque sempre retorna uma lista mesmo sendo um dado só
+    dados.nome = 'Guilherme Montenegro'
+    dados.save()
+    
+    pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
     
  
