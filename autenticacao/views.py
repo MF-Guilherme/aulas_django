@@ -21,7 +21,7 @@ def cadastro(request):
     
 
 def listar(request):
-    pessoas = Pessoa.objects.filter(nome='Guilherme').filter(senha=789456) #segundo filter utilizado como o operador "AND"
+    pessoas = Pessoa.objects.filter(nome='Guilherme') | Pessoa.objects.filter(senha='123431')
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
     
  
