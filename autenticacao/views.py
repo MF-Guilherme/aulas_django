@@ -21,7 +21,7 @@ def cadastro(request):
     
 
 def listar(request):
-    pessoas = Pessoa.objects.filter(nome='Guilherme') | Pessoa.objects.filter(senha='123431')
+    pessoas = Pessoa.objects.filter(nome='Guilherme') | Pessoa.objects.filter(senha=123431).exclude(senha=123431) #excluindo baseado em condições
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
     
  
