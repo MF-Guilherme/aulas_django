@@ -48,14 +48,18 @@ def listar(request):
     # pessoa.cargo = cargo
     # pessoa.save()
     
-    # CADASTRANDO UM CARGO COM O MANYTOMANYFIELD:
+    # CADASTRANDO UM CARGO COM O MANYTOMANYFIELD:    
+    # admin = Cargo.objects.get(id = 1)
+    # user = Cargo.objects.get(id = 2)
     
-    admin = Cargo.objects.get(id = 1)
+    # pessoa = Pessoa.objects.get(id = 1)
+    # pessoa.cargo.add(admin, user)
+    # pessoa.save()
+    
+    # FILTRANDO PESSOA PELO CARGO
     user = Cargo.objects.get(id = 2)
-    
-    pessoa = Pessoa.objects.get(id = 1)
-    pessoa.cargo.add(admin, user)
-    pessoa.save()
+    pessoa_admin = Pessoa.objects.filter(cargo = user)
+    print(pessoa_admin)
     
     pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
