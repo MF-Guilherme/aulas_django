@@ -57,9 +57,13 @@ def listar(request):
     # pessoa.save()
     
     # FILTRANDO PESSOA PELO CARGO
-    user = Cargo.objects.get(id = 2)
-    pessoa_admin = Pessoa.objects.filter(cargo = user)
-    print(pessoa_admin)
+    # user = Cargo.objects.get(id = 2)
+    # pessoa_admin = Pessoa.objects.filter(cargo = user)
+    # print(pessoa_admin)
     
+    # SELECT DOS CARGOS DE UMA DETERMINADA PESSOA
+    pessoa = Pessoa.objects.get(id = 2)
+    cargo = Cargo.objects.filter(pessoa = pessoa)
+    print(cargo)
     pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
