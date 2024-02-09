@@ -43,10 +43,19 @@ def listar(request):
     # pessoas = Pessoa.objects.filter(cargo__pk = 1) # uma opção diferente que funciona da mesma formas
     
     # ALTERANDO O CARGO
-    cargo = Cargo.objects.get(id = 1)
-    pessoa = Pessoa.objects.get(id = 2)
-    pessoa.cargo = cargo
+    # cargo = Cargo.objects.get(id = 1)
+    # pessoa = Pessoa.objects.get(id = 2)
+    # pessoa.cargo = cargo
+    # pessoa.save()
+    
+    # CADASTRANDO UM CARGO COM O MANYTOMANYFIELD:
+    
+    admin = Cargo.objects.get(id = 1)
+    user = Cargo.objects.get(id = 2)
+    
+    pessoa = Pessoa.objects.get(id = 1)
+    pessoa.cargo.add(admin, user)
     pessoa.save()
-        
+    
     pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
