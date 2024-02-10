@@ -21,49 +21,10 @@ def cadastro(request):
 
 
 def listar(request):
-    # CADASTRANDO USUÁRIOS COM DADOS PASSADOS PELA URL:
-
-    # if len(request.GET) != 0:
-    #     nome = request.GET.get('nome')
-    #     email = request.GET.get('email')
-    #     senha = request.GET.get('senha')
-
-    #     cargo = Cargo.objects.get(id=1)
-
-    #     pessoa = Pessoa(nome=nome,
-    #                     email=email,
-    #                     senha=senha,
-    #                     cargo=cargo)
-
-    #     pessoa.save()
-
-    # FILTRANDO PELO CARGO
-    # cargo = Cargo.objects.get(id = 1)
-    # pessoas = Pessoa.objects.filter(cargo = cargo)
-    # pessoas = Pessoa.objects.filter(cargo__pk = 1) # uma opção diferente que funciona da mesma formas
-    
-    # ALTERANDO O CARGO
-    # cargo = Cargo.objects.get(id = 1)
-    # pessoa = Pessoa.objects.get(id = 2)
-    # pessoa.cargo = cargo
-    # pessoa.save()
-    
-    # CADASTRANDO UM CARGO COM O MANYTOMANYFIELD:    
-    # admin = Cargo.objects.get(id = 1)
-    # user = Cargo.objects.get(id = 2)
-    
-    # pessoa = Pessoa.objects.get(id = 1)
-    # pessoa.cargo.add(admin, user)
-    # pessoa.save()
-    
-    # FILTRANDO PESSOA PELO CARGO
-    # user = Cargo.objects.get(id = 2)
-    # pessoa_admin = Pessoa.objects.filter(cargo = user)
-    # print(pessoa_admin)
-    
-    # SELECT DOS CARGOS DE UMA DETERMINADA PESSOA
-    pessoa = Pessoa.objects.get(id = 2)
-    cargo = Cargo.objects.filter(pessoa = pessoa)
-    print(cargo)
     pessoas = Pessoa.objects.all()
     return render(request, 'listar/listar.html', {'pessoas': pessoas})
+
+def listar_unico(request, id):
+    pessoa = Pessoa.objects.filter(id = id)
+    return render(request, 'listar/listar.html', {'pessoas': pessoa})
+    
